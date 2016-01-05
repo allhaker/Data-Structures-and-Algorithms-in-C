@@ -7,11 +7,16 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 void basicPointers();
 void arrayPointers();
+void stringPointers();
+void heap();
 int main(int argc, const char * argv[]) {
-    //basicPointers();
+    basicPointers();
     arrayPointers();
+    stringPointers();
+    heap();
     
     return 0;
 }
@@ -42,4 +47,26 @@ void arrayPointers() {
     printf("\n*meatBalls %d\n", *meatBalls);
     printf("\n*(meatBalls + 2) %d\n", *(meatBalls+2)); //third emelent in the array dereferenced
     
+}
+void stringPointers() {
+    char movie1[] = "King Kong";
+    char *movie2 = "Indiana Jones";
+    
+    puts(movie2);
+    
+    movie2 = "New Movie";
+    
+    puts(movie2);
+    
+    char movie[20];
+    char *pMovie = movie;
+    
+    fgets(pMovie, 20, stdin);
+    
+    puts(pMovie);
+}
+void heap() {
+    int *points;
+    points = (int *) malloc(5 * sizeof(int));
+    free(points);
 }
